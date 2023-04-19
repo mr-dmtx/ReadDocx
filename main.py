@@ -1,8 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 import docx
-import pypdf
-import sys, fitz
+import fitz
 
 root = tk.Tk()
 root.title("Leitor de Arquivos DOCX")
@@ -23,6 +22,7 @@ select_file_button = tk.Button(root, text="Selecionar arquivo", command=select_f
 select_file_button.pack()
 
 def read_file():
+    listbox.delete(0, len(listbox.get(0, tk.END)))
     if(file_path_entry.get().find(".pdf") > 0):
         read_file_pdf()
     else:
